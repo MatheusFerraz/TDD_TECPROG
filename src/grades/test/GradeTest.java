@@ -63,12 +63,21 @@ public class GradeTest {
 	}
 	
 	@Test
-	public void shouldReturnTheCorrectPercentageForFaults() {
+	public void shouldReturnTheCorrectPercentageForAttendanceFirstCase() {
 		int amountOfFaults = 0;
 		this.grade.setAmountOfFaults(0);
 		
 		amountOfFaults = shouldRetrieveFaults();
-		assertEquals(100,this.grade.calculatePercentageForFaults(amountOfFaults));
+		assertEquals(100,this.grade.calculatePercentageForAttendance(amountOfFaults),0.01);
+	}
+	
+	@Test
+	public void shouldReturnTheCorrectPercentageForAttendanceSecondCase() {
+		int amountOfFaults = 0;
+		this.grade.setAmountOfFaults(1);
+		
+		amountOfFaults = shouldRetrieveFaults();
+		assertEquals(96.66,this.grade.calculatePercentageForAttendance(amountOfFaults),0.01);
 	}
 
 }

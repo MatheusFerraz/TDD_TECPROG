@@ -14,8 +14,8 @@ public class Grade {
 
 	}
 	
-	public int calculatePercentageForFaults(int amountOfFaults) {
-		return 100;
+	public double calculatePercentageForAttendance(int amountOfFaults) {
+		return 100.0;
 	}
 
 	public double calculateAverageForActivities(double activityOne,
