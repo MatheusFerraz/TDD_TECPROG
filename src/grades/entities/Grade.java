@@ -8,9 +8,14 @@ public class Grade {
 
 	private double gradeExamOne;
 	private double gradeExamTwo;
+	private int amountOfFaults;
 
 	public Grade() {
 
+	}
+	
+	public int calculatePercentageForFaults(int amountOfFaults) {
+		return 100;
 	}
 
 	public double calculateAverageForActivities(double activityOne,
@@ -50,6 +55,14 @@ public class Grade {
 
 	public void setGradeTwo(double gradeTwo) {
 		this.gradeExamTwo = gradeTwo;
+	}
+	
+	public int getAmountOfFaults() {
+		return amountOfFaults;
+	}
+	
+	public void setAmountOfFaults(int amountOfFaults) {
+		this.amountOfFaults = amountOfFaults;
 	}
 
 }

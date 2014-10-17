@@ -21,6 +21,11 @@ public class GradeTest {
 		
 	}
 	
+	private int shouldRetrieveFaults() {
+		int faults = this.grade.getAmountOfFaults();
+		return faults;
+	}
+	
 	private void shouldSetValuesForCalculateAverage(final double firstGrade, final double secondGrade) {
 		this.grade.setGradeOne(firstGrade);
 		this.grade.setGradeTwo(secondGrade);
@@ -50,6 +55,20 @@ public class GradeTest {
 	@Test
 	public void shouldReturnTheCorrectAverageForActivitiesFirstCase() {
 		assertEquals(0.0, this.grade.calculateAverageForActivities(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0),0.01);
+	}
+	
+	@Test
+	public void shouldReturnTheCorrectAverageForActivitiesSecondCase() {
+		assertEquals(5.75, this.grade.calculateAverageForActivities(6.0,5.0,9.0,7.0,7.0,6.0,4.0,2.0),0.01);
+	}
+	
+	@Test
+	public void shouldReturnTheCorrectPercentageForFaults() {
+		int amountOfFaults = 0;
+		this.grade.setAmountOfFaults(0);
+		
+		amountOfFaults = shouldRetrieveFaults();
+		assertEquals(100,this.grade.calculatePercentageForFaults(amountOfFaults));
 	}
 
 }
