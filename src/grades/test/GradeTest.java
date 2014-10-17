@@ -1,14 +1,13 @@
-package notas.teste;
+package grades.test;
 
 import static org.junit.Assert.*;
+import grades.entities.*;
 
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
 
-import notas.entidade.*;
-
-public class NoteTest {
+public class GradeTest {
 	
 	private Grade grade;
 	
@@ -31,7 +30,7 @@ public class NoteTest {
 		shouldSetValuesForCalculateAverage(firstGrade, secondGrade);
 		double gradeOne = this.grade.getGradeOne();
 		double gradeTwo = this.grade.getGradeTwo();
-		double average = this.grade.calculateAverage(gradeOne, gradeTwo);
+		double average = this.grade.calculateAverageForExams(gradeOne, gradeTwo);
 		return average;
 	}
 
@@ -45,6 +44,12 @@ public class NoteTest {
 	public void shouldReturnTheCorrectAverageForExamsSecondCase() {
 		double average = shouldRetrieveAverageCalculated(8.0, 6.0);
 		assertEquals(7.0,average,0.01);
+	}
+	
+	
+	@Test
+	public void shouldReturnTheCorrectAverageForActivitiesFirstCase() {
+		assertEquals(0.0, this.grade.calculateAverageForActivities(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0),0.01);
 	}
 
 }
